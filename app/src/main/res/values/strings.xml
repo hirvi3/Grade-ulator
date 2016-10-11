@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Grade-ulator</string>
+    <string name="grade_title_hint">Enter a subject name E.G. BUS101.</string>
 </resources>
