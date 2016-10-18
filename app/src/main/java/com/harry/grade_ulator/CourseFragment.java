@@ -13,23 +13,23 @@ import android.widget.EditText;
  * Created by Harry on 11/10/2016.
  */
 
-public class GradeFragment extends Fragment {
-    private Grade mGrade;
-    private EditText mSubjectField;
+public class CourseFragment extends Fragment {
+    private Course mCourse;
+    private EditText mCourseField;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mGrade = new Grade();
+        mCourse = new Course();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_grade, container, false);
+        View v = inflater.inflate(R.layout.fragment_course, container, false);
 
-        mSubjectField = (EditText) v.findViewById(R.id.grade_title);
-        mSubjectField.addTextChangedListener(new TextWatcher() {
+        mCourseField = (EditText) v.findViewById(R.id.course_title);
+        mCourseField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(
                     CharSequence s, int start, int count, int after) {
@@ -39,7 +39,7 @@ public class GradeFragment extends Fragment {
             @Override
             public void onTextChanged(
                     CharSequence s, int start, int before, int count) {
-                mGrade.setTitle(s.toString());
+                mCourse.setTitle(s.toString());
             }
 
             @Override
