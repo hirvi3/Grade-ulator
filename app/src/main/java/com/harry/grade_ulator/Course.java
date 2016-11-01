@@ -29,11 +29,11 @@ public class Course {
         mTitle = title;
     }
 
-    public Integer getCourse() {
+/*    public Integer getCourse() {
         return mCourse;
     }
 
     public void setCourse(Integer course) {
         mCourse = course;
-    }
+    }*/
 }

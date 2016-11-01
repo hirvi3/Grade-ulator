@@ -1,5 +1,6 @@
 package com.harry.grade_ulator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -53,9 +54,8 @@ public class CourseListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getActivity(),
-                    mCourse.getTitle() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
+            Intent intent = new Intent(getActivity(), CourseActivity.class);
+            startActivity(intent);
         }
 
         public void bindCourse(Course course) {
