@@ -88,7 +88,8 @@ public class CourseListFragment extends Fragment {
     private void updateSubtitle() {
         CourseLab courseLab = CourseLab.get(getActivity());
         int courseCount = courseLab.getCourses().size();
-        String subtitle = getString(R.string.subtitle_format, courseCount);
+        String tempSize = "" + courseCount;
+        String subtitle = getString(R.string.subtitle_format, tempSize);
 
         if (!mSubtitleVisible) {
             subtitle = null;
