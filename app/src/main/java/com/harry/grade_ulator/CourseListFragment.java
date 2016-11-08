@@ -35,26 +35,38 @@ public class CourseListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI() {
         CourseLab courseLab = CourseLab.get(getActivity());
         List<Course> courses = courseLab.getCourses();
-        mAdapter = new CourseAdapter(courses);
-        mCourseRecyclerView.setAdapter(mAdapter);
+
+        if (mAdapter == null) {
+            mAdapter = new CourseAdapter(courses);
+            mCourseRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
-    private class CourseHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    private class CourseHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTitleTextView;
         private Course mCourse;
+
         public CourseHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             mTitleTextView = (TextView)
-            itemView.findViewById(R.id.list_item_course_title_text_view);
+                    itemView.findViewById(R.id.list_item_course_title_text_view);
         }
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), CourseActivity.class);
+            Intent intent = CourseActivity.newIntent(getActivity(), mCourse.getId());
             startActivity(intent);
         }
 
@@ -66,9 +78,11 @@ public class CourseListFragment extends Fragment {
 
     private class CourseAdapter extends RecyclerView.Adapter<CourseHolder> {
         private List<Course> mCourses;
+
         public CourseAdapter(List<Course> courses) {
             mCourses = courses;
         }
+
         @Override
         public CourseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
@@ -76,11 +90,13 @@ public class CourseListFragment extends Fragment {
                     .inflate(R.layout.list_item_course, parent, false);
             return new CourseHolder(view);
         }
+
         @Override
         public void onBindViewHolder(CourseHolder holder, int position) {
             Course course = mCourses.get(position);
             holder.bindCourse(course);
         }
+
         @Override
         public int getItemCount() {
             return mCourses.size();
