@@ -1,3 +1,4 @@
+/*
 package com.harry.grade_ulator;
 
 import android.content.Context;
@@ -26,3 +27,4 @@ public class CourseActivity extends SingleFragmentActivity {
         return CourseFragment.newInstance(courseId);
     }
 }
+*/

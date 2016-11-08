@@ -66,7 +66,7 @@ public class CourseListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = CourseActivity.newIntent(getActivity(), mCourse.getId());
+            Intent intent = CoursePagerActivity.newIntent(getActivity(), mCourse.getId());
             startActivity(intent);
         }
 
