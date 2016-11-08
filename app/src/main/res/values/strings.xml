@@ -3,5 +3,9 @@
     <string name="course_title_hint">Enter a course name E.G. BUS101.</string>
     <string name="course_title_label">Course Name</string>
     <string name="grade_assesment_label">Assessment Items</string>
+    <string name="new_course">New Course</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle_format">%1$s courses</string>
 
 </resources>

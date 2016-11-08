@@ -13,6 +13,10 @@ import java.util.UUID;
 public class CourseLab {
     private static CourseLab sCourseLab;
 
+    public void addCourse(Course c) {
+        mCourses.add(c);
+    }
+
     private List<Course> mCourses;
 
     public static CourseLab get(Context context) {
@@ -23,9 +27,9 @@ public class CourseLab {
     }
     private CourseLab(Context context) {
         mCourses = new ArrayList<>();
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 4; i++) {
             Course course = new Course();
-            course.setTitle("Course #" + i);
+            course.setTitle("Subject #" + i);
             mCourses.add(course);
         }
     }
