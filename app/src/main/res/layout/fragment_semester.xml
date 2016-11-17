@@ -7,26 +7,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/course_title_label"
+        android:text="@string/semester_title_label"
         style="?android:listSeparatorTextViewStyle"
         />
     <EditText android:id="@+id/course_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/course_title_hint"
+        android:hint="@string/semester_title_hint"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/grade_assessment_label"
+        android:text="@string/course_label"
         style="?android:listSeparatorTextViewStyle"
         />
-
-    <Button
-        android:text="Go to Assesment Items"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/link_to_assesment" />
-
-
 </LinearLayout>

@@ -7,26 +7,33 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.UUID;
 
 /**
- * Created by Harry on 11/10/2016.
+ * Created by Harry on 17/11/2016.
  */
 
-public class CourseFragment extends Fragment {
-    private Course mCourse;
-    private EditText mCourseField;
+public class TaskFragment extends Fragment {
 
-    private static final String ARG_COURSE_ID = "course_id";
+    private static final String ARG_TASK_ID = "task_id";
 
-    public static CourseFragment newInstance(UUID courseId) {
+    private Task mTask;
+    private EditText mTitleField;
+   /* EditText mMark;
+    //Float mMark;
+    EditText mOutOf;
+    TextView mPercent;
+    EditText mWeight;
+    TextView mWorth;
+    TextView mTotal;*/
+
+    public static TaskFragment newInstance(UUID taskId) {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_COURSE_ID, courseId);
-
-        CourseFragment fragment = new CourseFragment();
+        args.putSerializable(ARG_TASK_ID, taskId);
+        TaskFragment fragment = new TaskFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -34,18 +41,18 @@ public class CourseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID courseId = (UUID) getArguments().getSerializable(ARG_COURSE_ID);
-        mCourse = CourseLab.get(getActivity()).getCourse(courseId);
+        UUID taskId = (UUID) getArguments().getSerializable(ARG_TASK_ID);
+        mTask = TaskLab.get(getActivity()).getTask(taskId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_course, container, false);
+        View v = inflater.inflate(R.layout.fragment_task, container, false);
 
-        mCourseField = (EditText) v.findViewById(R.id.course_title);
-        mCourseField.setText(mCourse.getTitle());
-        mCourseField.addTextChangedListener(new TextWatcher() {
+        mTitleField = (EditText) v.findViewById(R.id.task_title);
+        mTitleField.setText(mTask.getTitle());
+        mTitleField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(
                     CharSequence s, int start, int count, int after) {
@@ -55,7 +62,7 @@ public class CourseFragment extends Fragment {
             @Override
             public void onTextChanged(
                     CharSequence s, int start, int before, int count) {
-                mCourse.setTitle(s.toString());
+                mTask.setTitle(s.toString());
             }
 
             @Override
@@ -64,6 +71,8 @@ public class CourseFragment extends Fragment {
             }
         });
 
+
         return v;
     }
+
 }

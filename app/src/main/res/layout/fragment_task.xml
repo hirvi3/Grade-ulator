@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/task_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/task_title_hint" />
+
+    <TextView
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="wrap_content"
+        android:text="@string/task_title_label" />
+
+    <TextView
+        android:id="@+id/task_mark_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/task_mark_hint" />
+
+    <EditText
+        android:id="@+id/task_mark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/task_out_of_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/task_out_of_hint" />
+
+    <EditText
+        android:id="@+id/task_out_of"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/task_percent_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_percent_hint" />
+
+    <TextView
+        android:id="@+id/task_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/task_weight_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/task_weight_hint" />
+
+    <EditText
+        android:id="@+id/task_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/task_total_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/task_total_hint" />
+
+    <TextView
+        android:id="@+id/task_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
