@@ -35,12 +35,22 @@ public class TaskListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI() {
         TaskLab taskLab = TaskLab.get(getActivity());
         List<Task> tasks = taskLab.getTasks();
 
-        mAdapter = new TaskAdapter(tasks);
-        mTaskRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+            mAdapter = new TaskAdapter(tasks);
+            mTaskRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -69,6 +79,7 @@ public class TaskListFragment extends Fragment {
 
     private class TaskAdapter extends RecyclerView.Adapter<TaskHolder> {
         private List<Task> mTasks;
+
         public TaskAdapter(List<Task> tasks) {
             mTasks = tasks;
         }
@@ -80,6 +91,7 @@ public class TaskListFragment extends Fragment {
                     .inflate(R.layout.list_item_task, parent, false);
             return new TaskHolder(view);
         }
+
         @Override
         public void onBindViewHolder(TaskHolder holder, int position) {
             Task task = mTasks.get(position);
